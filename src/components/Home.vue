@@ -173,8 +173,9 @@ function listViewLoaded(args: { object: NSScrollView }) {
               opacity="0"
             >
               <Label
-                class="text-center text-white"
+                v-if="currentStatus === Status.Scroll"
                 :text="`${percentage}%`"
+                class="text-center text-white"
                 verticalAlignment="center"
                 horizontalAlignment="center"
               ></Label>
