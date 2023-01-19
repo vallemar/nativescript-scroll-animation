@@ -163,7 +163,7 @@ function listViewLoaded(args: { object: NSScrollView }) {
             <Label
               ref="refViewTopStatus"
               class="text text-white"
-              text="15 mins"
+              text="15 min"
               verticalAlignment="center"
               horizontalAlignment="center"
             ></Label>
