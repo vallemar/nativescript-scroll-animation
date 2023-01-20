@@ -1,15 +1,12 @@
 <script lang="ts" setup>
-import { ref, Ref, toRaw } from 'nativescript-vue';
+import { ref, toRaw } from 'nativescript-vue';
 import {
-  isAndroid,
-  ListView as NSListView,
-  Screen,
   ScrollView as NSScrollView,
-  View,
+  ScrollEventData
 } from '@nativescript/core';
-import { ScrollEventData } from '@nativescript/core/ui/scroll-view';
 import { LoremIpsum } from 'lorem-ipsum';
-import { NativeRef, Status } from '../types.ts';
+import {NativeRef, Status} from "~/types";
+
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
     max: 6,
@@ -23,10 +20,10 @@ const lorem = new LoremIpsum({
 
 const percentage = ref(0);
 const currentStatus = ref(Status.Top);
-const refViewWrap = ref();
-const refViewTopStatus = ref();
-const refViewScrollStatus = ref();
-const refViewBottomStatus = ref();
+const refViewWrap = ref() as NativeRef;
+const refViewTopStatus = ref() as NativeRef;
+const refViewScrollStatus = ref() as NativeRef;
+const refViewBottomStatus = ref() as NativeRef;
 const items = ref(
   Array(30)
     .fill(0)
@@ -69,7 +66,7 @@ const animateWidth = (view: NativeRef, size: number) =>
   });
 
 const applyAnimation = (
-  showView: NativeRef[],
+  showView: NativeRef,
   hideViews: NativeRef[],
   size: number
 ) => {
@@ -201,9 +198,3 @@ function listViewLoaded(args: { object: NSScrollView }) {
     </Page>
   </Frame>
 </template>
-
-<style>
-.x {
-  background-color: #4c5567;
-}
-</style>
